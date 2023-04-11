@@ -4,3 +4,55 @@
         <span class="sr-only"></span>
     </div>
 </div>
+<div *ngIf="userList.length">
+    <table class="table table-striped">
+        <thead>
+            <th scope="col"><button
+                (click)="toggleSort('username')"
+                 class="btn btn-secondary btn-sm">
+                username
+            </button> Username</th>
+            <th scope="col"><button
+                (click)="toggleSort('name')"
+                 class="btn btn-secondary btn-sm">
+                Firstname
+            </button>
+            First</th>
+            <th scope="col">
+                <button
+                (click)="toggleSort('surname')"
+                 class="btn btn-secondary btn-sm">
+                Lastname
+            </button>
+                Last</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userList">
+                <td>
+                    {{user.username}}
+                </td>
+                <td>
+                    {{user.name}}
+                </td>
+                <td>
+                    {{user.surname}}
+                </td>
+                <td>
+                    {{user.email}}
+                </td>
+                <td>
+                    {{user.address.area}}<br/>
+                    {{user.address.area}}
+                </td>
+                <td *ngFor=" let phone of user.phone">
+                   <strong> {{phone.type}}</strong><br/>
+                   <strong>{{phone.number}}</strong>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
