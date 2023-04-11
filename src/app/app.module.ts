@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     WelcomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
