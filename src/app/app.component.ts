@@ -11,7 +11,7 @@ export class AppComponent {
   name = 'Aksavvidi';
 
   usersMenu: MenuItem[] = [
-    {text: 'List of Users', link: 'not-implemented-yet'},
+    {text: 'List of Users', link: 'user/list'},
     {text: 'Insert a User', link: 'not-implemented-yet'},
     {text: 'Delete a User', link: 'not-implemented-yet'},
     {text: 'Update a User', link: 'not-implemented-yet'},
