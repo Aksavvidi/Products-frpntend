@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UserAPIList } from './user.interfaces';
 
 const USER_API = 'https://codingfactory.ddns.net/api/user'
 
@@ -9,7 +10,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   findAll(){
-    return this.http.get(`${USER_API}/findAll`)
+    return this.http.get<UserAPIList>(`${USER_API}/findAll`)
   }
 }
 
