@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ProductsAPIList } from './products.interfaces';
+import { delay } from 'rxjs';
 
 const PRODUCTS_API = 'https://codingfactory.ddns.net/api/product'
 
@@ -9,7 +10,6 @@ export class ProductsService {
   constructor(private http:HttpClient) { }
 
   findAll(){
-    return this.http.get<ProductsAPIList>(`${PRODUCTS_API}/findall`)
+    return this.http.get<ProductsAPIList>(`${PRODUCTS_API}/findall`).pipe(delay(1000))
   }
 }
-
