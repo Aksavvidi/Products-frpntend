@@ -9,4 +9,4 @@ export interface Product {
 export interface ProductsAPIList {
     status: boolean;
     data: Product[];
-}
+} 

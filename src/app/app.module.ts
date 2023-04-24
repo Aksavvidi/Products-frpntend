@@ -7,7 +7,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { UserModule } from './user/user.module';
-import { ProductsModule } from './porducts/products.module';
+import { ProductsModule } from './porducts/products';
 
 const routes: Routes = [
   {
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'products', 
-    loadChildren: () => import('./porducts/products.module').then((m) => ProductsModule)
+    loadChildren: () => import('./porducts/products').then((m) => ProductsModule)
   },
 
   {path: '', component: WelcomeComponent},
