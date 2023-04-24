@@ -1,1 +1,47 @@
-<p>products-insert works!</p>
+<h2>Products Form</h2>
+<form  (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="product" class="form-label">Product</label>
+    <input
+      type="text"
+      class="form-control"
+      id="product"
+      formControlName="product"
+    >
+  </div>
+  <div class="mb-3">
+    <label for="cost" class="form-label">Cost</label>
+    <input
+      type="text"
+      class="form-control"
+      id="cost"
+      formControlName="cost"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Description</label>
+    <input type="text" class="form-control" id="description" formControlName="description" />
+  </div>
+  <div class="mb-3">
+    <label for="quantity" class="form-label">Quantity</label>
+    <input
+      type="text"
+      class="form-control"
+      id="quantity"
+      formControlName="quantity"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="_id" class="form-label">Id</label>
+    <input
+      type="text"
+      class="form-control"
+      id="_id"
+      formControlName="_id"
+    />
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!form.valid">
+    Submit
+  </button>
+</form>
+
