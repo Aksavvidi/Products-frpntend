@@ -1,23 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
-import { ProductsAPIList } from '../products.interfaces';
+import { Product, ProductsAPIList } from '../products.interfaces';
+import { orderBy } from 'lodash-es';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.css']
 })
-export class ProductsListComponent implements OnInit {
+export class ProductsListComponent implements OnInit, OnDestroy {
   constructor(private productsService: ProductsService) {}
 
   loading = false;
+  productsList: Product[] = [];
+  subscription: Subscription | undefined;
+
+  productsSortType:'asc' | 'desc' = 'asc';
+  idSortType:'asc' | 'desc' = 'asc';
 
   ngOnInit(): void {
       console.log("Starting 'findAll' API call");
       this.loading = true;
-      this.productsService.findAll().subscribe({
+      this.subscription = this.productsService.findAll().subscribe({
         next: (apiProData: ProductsAPIList) => {
           const {status, data} = apiProData
+          this.productsList = data;
           console.log(status, data);
         },
         error: (error) => { 
@@ -28,5 +36,26 @@ export class ProductsListComponent implements OnInit {
           console.log('API call completed');
         },
       });
+  }
+
+  ngOnDestroy(): void {
+      this.subscription?.unsubscribe();
+  }
+
+  toggleProdSort(key:string,) {
+    switch (key) {
+      case 'product':
+        this.productsSortType = 
+          this.productsSortType === 'asc' ? 'desc' : 'asc';
+        this.productsList = orderBy(this.productsList, [key], [this.productsSortType])
+        break;
+      case '_id':
+          this.idSortType = 
+             this.idSortType === 'asc' ? 'desc' : 'asc';
+          this.productsList = orderBy(this.productsList, [key], [this.idSortType])
+          break;
+      default:
+        break;
+    }
   }
 }

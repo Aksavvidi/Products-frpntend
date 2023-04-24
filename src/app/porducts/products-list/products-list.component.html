@@ -4,3 +4,50 @@
         <span class="sr-only"></span>
     </div>
 </div>
+
+<div *ngIf="productsList.length">
+    <table class="table table-striped">
+        <thead>
+            <th scope="col">
+                <button
+                (click)="toggleProdSort('product')"
+                 class="btn btn-secondary btn-sm">
+                Product </button>
+            </th>
+            <th scope="col">
+                Cost
+            </th>
+            <th scope="col">
+                description
+            </th>
+            <th scope="col">
+                quantity
+            </th>
+            <th scope="col">
+                <button
+                (click)="toggleProdSort('_id')"
+                 class="btn btn-secondary btn-sm">
+                 _id </button>
+            </th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let products of productsList">
+                <td>
+                    {{products.product}}
+                </td>
+                <td>
+                    {{products.cost}}
+                </td>
+                <td>
+                    {{products.description}}
+                </td>
+                <td>
+                    {{products.quantity}}
+                </td>
+                <td>
+                    {{products._id}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
