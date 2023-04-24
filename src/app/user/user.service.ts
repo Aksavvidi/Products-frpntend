@@ -11,7 +11,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   findAll(){
-    return this.http.get<UserAPIList>(`${USER_API}/findAll`).pipe(delay(1000))
+    return this.http.get<UserAPIList>(`${USER_API}/findall`).pipe(delay(1000))
   }
   insertUser(user: User) {
     return this.http.post<UserAPIList>(`${USER_API}/create`, user);
