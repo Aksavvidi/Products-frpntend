@@ -8,6 +8,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { UserModule } from './user/user.module';
 import { ProductsModule } from './porducts/products';
+import { ProductsInsertComponent } from './porducts/products-insert/products-insert.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,8 @@ const routes: Routes = [
     AppComponent,
     WelcomeComponent,
     PageNotFoundComponent,
-    DropdownComponent
+    DropdownComponent,
+    ProductsInsertComponent
   ],
   imports: [
     BrowserModule,

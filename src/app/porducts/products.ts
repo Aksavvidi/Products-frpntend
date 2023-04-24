@@ -5,9 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductsService } from './products.service';
+import { ProductsInsertComponent } from './products-insert/products-insert.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
-  {path: 'list', component:ProductsListComponent}
+  {path: 'list', component:ProductsListComponent},
+  {path: 'insert', component:ProductsInsertComponent},
 ];
 
 @NgModule({
@@ -17,7 +20,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes), 
-    HttpClientModule
+    HttpClientModule, ReactiveFormsModule
   ],
   providers:[ProductsService]
 })
