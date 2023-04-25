@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { usersMenu, productsMenu } from 'shared';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +13,11 @@ export class AppComponent {
   usersMenu = usersMenu;
   productsMenu = productsMenu;
 
- 
+  isLoggedIn$ = this.service.isLoggedIn$;
+  loggedInUserFullname$ = this.service.loggedInUserFullname$;
+  constructor(private service: AppService) {}
+
+  logout() {
+    this.service.logout();
+  }
 }
