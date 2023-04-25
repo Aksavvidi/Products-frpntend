@@ -26,6 +26,7 @@ export class AppService {
   constructor(private http: HttpClient, private alertService: UiService, private router : Router) { }
   
   login(username: string, password: string) {
+    this.setIsLoading(true);
     this.http
       .get<UserAPIUserOne>(`${USER_API}/findone/${username}`)
       .subscribe((user) => {
@@ -46,11 +47,13 @@ export class AppService {
             heading: 'Authentication Error', 
             text: 'Wrong username or password',})
         }
+        this.setIsLoading(false);
       });
   }
   logout() {
     this.loggedInSubject.next(false);
     this.loggedInUserFullnameSubject.next('');
+    this.router.navigate(['']);
   }
 
   setIsLoading(isLoading: boolean) {
