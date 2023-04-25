@@ -10,7 +10,6 @@
           }}</a></strong
         >
       </span>
-      <span> Coding Factory</span>
       <span *ngIf="!(isLoggedIn$ | async); else fullname"> Coding Factory</span>
       <ng-template #fullname>
         <span> {{ loggedInUserFullname$ | async }}</span>
@@ -35,6 +34,14 @@
     </nav>
   </div>
   <div class="row mt-2">
+
+    <lib-alert
+       *ngIf="isLoading$ | async"
+       [type]="'info'"
+       [text]="'Communicating with backend...'"
+       [spinner]="true"
+       >
+    </lib-alert>
 
     <lib-alert
     *ngFor="let alert of alerts index as i"
