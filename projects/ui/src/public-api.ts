@@ -9,3 +9,4 @@ export * from './lib/ui.component';
 export * from './lib/ui.module';
 
 export * from './lib/dropdown/dropdown.component';
+export * from './lib/alert/alert.component';
