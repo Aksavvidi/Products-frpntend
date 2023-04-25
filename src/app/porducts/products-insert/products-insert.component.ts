@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductsService } from '../products.service';
-import { Product } from '../products.interfaces';
+import { Product } from 'shared';
 
 @Component({
   selector: 'app-products-insert',

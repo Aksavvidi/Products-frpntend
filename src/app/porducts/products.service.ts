@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Product, ProductsAPIList } from './products.interfaces';
+import { Product, ProductsAPIList } from 'shared';
 import { delay } from 'rxjs';
 
 const PRODUCTS_API = 'https://codingfactory.ddns.net/api/product'

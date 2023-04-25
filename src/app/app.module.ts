@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
 import { SharedModule } from 'shared';
+import {UiModule} from 'ui';
 
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -11,6 +12,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { UserModule } from './user/user.module';
 import { ProductsModule } from './porducts/products';
 import { ProductsInsertComponent } from './porducts/products-insert/products-insert.component';
+
 
 const routes: Routes = [
   {
@@ -36,7 +38,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),SharedModule,
+    RouterModule.forRoot(routes),SharedModule,UiModule
   ],
   providers: [],
   bootstrap: [AppComponent]

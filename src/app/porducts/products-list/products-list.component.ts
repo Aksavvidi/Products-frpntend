@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
-import { Product, ProductsAPIList } from '../products.interfaces';
+import { Product, ProductsAPIList } from 'shared';
 import { orderBy } from 'lodash-es';
 import { Subscription } from 'rxjs';
 
