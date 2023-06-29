@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {User,  UserAPIUserOne } from 'shared';
+import { UserAPIUserOne } from 'shared';
 import { BehaviorSubject } from 'rxjs';
 import { UiService } from 'ui';
 import { Router } from '@angular/router';
